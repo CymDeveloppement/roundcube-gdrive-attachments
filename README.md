@@ -30,8 +30,8 @@ belong to the company, in a shared drive managed by its administrators.
 
 ## Requirements
 
-- Roundcube 1.7 or later
-- PHP 8.0 or later with the openssl and json extensions
+- Roundcube 1.6 or later (tested with 1.6.19 and 1.7.4)
+- PHP 7.3 or later with the openssl and json extensions
 - Google Workspace with shared drives
 
 ## Google Workspace setup

@@ -16,8 +16,15 @@ window.rcmail && rcmail.addEventListener('init', function () {
     // Names of the attachments replaced by a Drive link
     var drive_files = {};
 
+    // Roundcube 1.6 get_label() does not replace variables
     var label = function (name, vars) {
-        return rcmail.get_label(name, 'roundcube_gdrive_attachments', vars);
+        var text = rcmail.get_label(name, 'roundcube_gdrive_attachments');
+
+        $.each(vars || {}, function (key, value) {
+            text = text.split('$' + key).join(value);
+        });
+
+        return text;
     };
 
     var file_size = function (files) {

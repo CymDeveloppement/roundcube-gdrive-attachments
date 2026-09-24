@@ -12,14 +12,14 @@
     ],
     "homepage": "https://github.com/CymDeveloppement/roundcube-gdrive-attachments",
     "require": {
-        "php": ">=8.0",
+        "php": ">=7.3",
         "ext-openssl": "*",
         "ext-json": "*",
         "roundcube/plugin-installer": ">=0.3.0"
     },
     "extra": {
         "roundcube": {
-            "min-version": "1.7.0"
+            "min-version": "1.6.0"
         }
     },
     "keywords": [
