@@ -13,8 +13,9 @@ belong to the company, in a shared drive managed by its administrators.
 - **Large files intercepted in the compose screen**: when a file exceeds the
   attachment limit, the user is asked whether to share it via Google Drive
   (or it is uploaded right away, see `gdrive_attachments_behavior`).
-- **Soft limit**: files that could be attached but are large may also be
-  offered as a link (`gdrive_attachments_softlimit`).
+- **Soft limit**: files that could be attached but are large also go to
+  Google Drive (`gdrive_attachments_softlimit`), after asking the user or
+  right away, depending on `gdrive_attachments_behavior`.
 - **"Anyone with the link" sharing**: recipients download the file without a
   Google account. The file is not listed in searches.
 - **Link inserted in the message**, before the signature, in HTML and plain
@@ -115,8 +116,8 @@ $config['gdrive_attachments_retention_days'] = 30;
 | `gdrive_attachments_folder_id` | `null` | Folder of the shared drive to use instead of its root |
 | `gdrive_attachments_subject` | `null` | Account to impersonate (domain-wide delegation), without shared drive |
 | `gdrive_attachments_folder` | `'{username}/{year}-{month}'` | Folder of the files: `{username}`, `{local}`, `{domain}`, `{year}`, `{month}`, `{day}` |
-| `gdrive_attachments_behavior` | `'prompt'` | `'prompt'`: ask the user; `'upload'`: upload right away |
-| `gdrive_attachments_softlimit` | `null` | Also offer Drive for files larger than this (e.g. `'10M'`) |
+| `gdrive_attachments_behavior` | `'prompt'` | `'prompt'`: ask the user; `'upload'`: upload right away (above the limit and above the soft limit) |
+| `gdrive_attachments_softlimit` | `null` | Also use Drive for files larger than this (e.g. `'10M'`); with `'prompt'` the user may still attach them |
 | `gdrive_attachments_attach_html` | `true` | Also attach an HTML file holding the link |
 | `gdrive_attachments_retention_days` | `30` | Days before the cleanup script trashes the files (0 = kept) |
 | `gdrive_attachments_timeout` | `300` | Timeout of each request to Google, in seconds |

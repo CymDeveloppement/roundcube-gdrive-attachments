@@ -114,6 +114,10 @@ window.rcmail && rcmail.addEventListener('init', function () {
 
         // Could be attached, but a link is advised
         if (config.softlimit && size > config.softlimit) {
+            if (config.behavior == 'upload') {
+                return drive_upload(files, post_args, props);
+            }
+
             dialog(label('file_big'), label('file_big_explain', { size: human_size }), [
                 { text: label('upload_to_drive'), 'class': 'mainaction', click: function () { drive_upload(files, post_args, props); } },
                 { text: label('attach_anyway'), click: function () { file_upload.call(rcmail, files, post_args, props); } },

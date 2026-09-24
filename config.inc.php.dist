@@ -34,7 +34,8 @@ $config['gdrive_attachments_timeout'] = 300;
 
 // --------------- Behaviour ------------------
 // What to do with files larger than the attachment limit (max_message_size
-// of Roundcube, divided by 1.33 for the base64 encoding):
+// of Roundcube, divided by 1.33 for the base64 encoding), or than
+// gdrive_attachments_softlimit when it is set:
 //   'prompt'  ask the user whether to share the file via Google Drive
 //   'upload'  share it via Google Drive right away
 // Note: files still go through the Roundcube server. PHP upload_max_filesize
@@ -42,8 +43,10 @@ $config['gdrive_attachments_timeout'] = 300;
 // max_message_size to the actual limit of the mail server (e.g. '25M').
 $config['gdrive_attachments_behavior'] = 'prompt';
 
-// Files larger than this may still be attached, but the user is offered to
-// share them via Google Drive (e.g. '10M'). null to disable.
+// Lower threshold (e.g. '10M'): files larger than this go to Google Drive too,
+// even if they could be attached. With 'prompt' the user may still choose to
+// attach them; with 'upload' they are shared via Google Drive right away.
+// null to disable.
 $config['gdrive_attachments_softlimit'] = null;
 
 // Also attach a small HTML file holding the link (like Thunderbird does), in
