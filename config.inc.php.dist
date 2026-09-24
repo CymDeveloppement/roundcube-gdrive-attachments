@@ -1,0 +1,59 @@
+<?php
+
+$config = array();
+
+// --------------- Google account ------------------
+// JSON key file of the service account (absolute path, or relative to the
+// plugin folder). Keep it out of the web root and readable by PHP only.
+// The plugin is disabled while this is empty.
+$config['gdrive_attachments_key_file'] = '';
+
+// Id of the shared drive receiving the files: the last part of its URL,
+// https://drive.google.com/drive/folders/<id>. The service account must be a
+// member of the shared drive with the "Content manager" role.
+$config['gdrive_attachments_drive_id'] = '';
+
+// Optional: id of a folder of the shared drive to use instead of its root
+$config['gdrive_attachments_folder_id'] = null;
+
+// Optional: account impersonated by the service account (domain-wide
+// delegation), e.g. 'attachments@example.com'. Not needed with a shared
+// drive: service accounts cannot store files in their own drive.
+$config['gdrive_attachments_subject'] = null;
+
+// Folder of the files, created below the root folder. Placeholders:
+//   {username} Roundcube login (e.g. user@example.com)
+//   {local}    part of the login before the @
+//   {domain}   part of the login after the @
+//   {year} {month} {day}  upload date
+$config['gdrive_attachments_folder'] = '{username}/{year}-{month}';
+
+// Timeout of the requests to Google, in seconds (each 8 MB chunk of a file
+// is a request)
+$config['gdrive_attachments_timeout'] = 300;
+
+// --------------- Behaviour ------------------
+// What to do with files larger than the attachment limit (max_message_size
+// of Roundcube, divided by 1.33 for the base64 encoding):
+//   'prompt'  ask the user whether to share the file via Google Drive
+//   'upload'  share it via Google Drive right away
+// Note: files still go through the Roundcube server. PHP upload_max_filesize
+// and post_max_size must be set to the largest file allowed (e.g. 2G), and
+// max_message_size to the actual limit of the mail server (e.g. '25M').
+$config['gdrive_attachments_behavior'] = 'prompt';
+
+// Files larger than this may still be attached, but the user is offered to
+// share them via Google Drive (e.g. '10M'). null to disable.
+$config['gdrive_attachments_softlimit'] = null;
+
+// Also attach a small HTML file holding the link (like Thunderbird does), in
+// addition to the link inserted in the message body
+$config['gdrive_attachments_attach_html'] = true;
+
+// Number of days the files stay on Google Drive. The date is shown next to
+// the link, and bin/cleanup.php (to run daily from cron) moves the expired
+// files to the trash. 0 = files are kept.
+$config['gdrive_attachments_retention_days'] = 30;
+
+// Roundcube logins for which the plugin is disabled
+$config['gdrive_attachments_excluded_users'] = array();

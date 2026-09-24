@@ -1,0 +1,38 @@
+{
+    "name": "cymdeveloppement/roundcube-gdrive-attachments",
+    "type": "roundcube-plugin",
+    "description": "Uploads attachments larger than the message size limit to a Google shared drive with a service account, and inserts a download link in the message",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yann Challet",
+            "homepage": "https://github.com/CymDeveloppement",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://github.com/CymDeveloppement/roundcube-gdrive-attachments",
+    "require": {
+        "php": ">=8.0",
+        "ext-openssl": "*",
+        "ext-json": "*",
+        "roundcube/plugin-installer": ">=0.3.0"
+    },
+    "extra": {
+        "roundcube": {
+            "min-version": "1.7.0"
+        }
+    },
+    "keywords": [
+        "roundcube",
+        "roundcube-plugin",
+        "google-drive",
+        "attachments",
+        "large-files",
+        "email",
+        "webmail"
+    ],
+    "support": {
+        "issues": "https://github.com/CymDeveloppement/roundcube-gdrive-attachments/issues",
+        "source": "https://github.com/CymDeveloppement/roundcube-gdrive-attachments"
+    }
+}
