@@ -7,6 +7,7 @@ $labels['file_big'] = 'Fichier volumineux';
 $labels['file_big_explain'] = 'Ce fichier est volumineux ($size). L\'envoyer sous forme de lien Google Drive plutôt qu\'en pièce jointe ?';
 $labels['upload_to_drive'] = 'Partager via Google Drive';
 $labels['attach_anyway'] = 'Joindre quand même';
+$labels['upload_in_progress'] = 'Envoi du fichier ($size) vers Google Drive en cours. Selon sa taille, cela peut prendre plusieurs minutes : ne fermez pas cette fenêtre.';
 $labels['file_too_big_for_server'] = 'Le fichier est trop volumineux : les fichiers ne peuvent pas dépasser $size, même via Google Drive.';
 $labels['link_inserted'] = '$name a été déposé sur Google Drive et son lien inséré dans le message.';
 $labels['upload_failed'] = 'Le fichier n\'a pas pu être déposé sur Google Drive. Réessayez ou contactez votre administrateur.';

@@ -68,9 +68,10 @@ window.rcmail && rcmail.addEventListener('init', function () {
     // Sends the files to Drive: the core checks the size against
     // env.max_filesize, raised while the request is being built
     var drive_upload = function (files, post_args, props) {
-        var max_filesize = rcmail.env.max_filesize, result;
+        var max_filesize = rcmail.env.max_filesize, size = file_size(files),
+            pending = $.extend({}, rcmail.uploads), result, message;
 
-        if (config.max_upload && file_size(files) > config.max_upload) {
+        if (config.max_upload && size > config.max_upload) {
             rcmail.display_message(label('file_too_big_for_server', { size: config.max_upload_text }), 'error');
             return false;
         }
@@ -81,6 +82,16 @@ window.rcmail && rcmail.addEventListener('init', function () {
         } finally {
             rcmail.env.max_filesize = max_filesize;
         }
+
+        // Warns that the upload may take a while, until the server answers
+        $.each(rcmail.uploads || {}, function (id, request) {
+            if (!pending[id] && request && request.always) {
+                message = rcmail.display_message(label('upload_in_progress', { size: show_bytes(size) }), 'warning', 3600000);
+                request.always(function () {
+                    rcmail.hide_message(message);
+                });
+            }
+        });
 
         return result;
     };

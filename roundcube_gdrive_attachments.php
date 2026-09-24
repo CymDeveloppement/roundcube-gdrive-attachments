@@ -55,7 +55,7 @@ class roundcube_gdrive_attachments extends rcube_plugin
         if ($args['action'] == 'compose') {
             $this->add_texts('localization/', array(
                 'file_too_big', 'file_too_big_explain', 'file_big', 'file_big_explain',
-                'upload_to_drive', 'attach_anyway', 'link_inserted', 'file_too_big_for_server', 'available_until',
+                'upload_to_drive', 'attach_anyway', 'upload_in_progress', 'link_inserted', 'file_too_big_for_server', 'available_until',
                 'remove_title', 'remove_question', 'remove_from_drive', 'keep_on_drive',
             ));
             $this->include_script('roundcube_gdrive_attachments.js');

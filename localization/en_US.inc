@@ -7,6 +7,7 @@ $labels['file_big'] = 'Large file';
 $labels['file_big_explain'] = 'This file is large ($size). Send it as a Google Drive download link instead of attaching it?';
 $labels['upload_to_drive'] = 'Share via Google Drive';
 $labels['attach_anyway'] = 'Attach anyway';
+$labels['upload_in_progress'] = 'Uploading the file ($size) to Google Drive. Depending on its size this may take several minutes: please do not close this window.';
 $labels['file_too_big_for_server'] = 'The file is too large: files cannot exceed $size, even through Google Drive.';
 $labels['link_inserted'] = '$name was uploaded to Google Drive and its link inserted in the message.';
 $labels['upload_failed'] = 'The file could not be uploaded to Google Drive. Please try again or contact your administrator.';
